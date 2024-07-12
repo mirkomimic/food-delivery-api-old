@@ -2,23 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Courier;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class CourierSeeder extends Seeder
 {
   /**
    * Run the database seeds.
    */
   public function run(): void
   {
-    User::factory()->create([
-      'name' => 'mirko',
-      'email' => 'mirko@test.com',
-      'isAdmin' => true
-    ]);
-
-    User::factory(10)->create();
+    Courier::factory(10)->create();
   }
 }
