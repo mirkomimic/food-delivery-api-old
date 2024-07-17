@@ -13,6 +13,11 @@ class CourierSeeder extends Seeder
    */
   public function run(): void
   {
+    Courier::factory()->create([
+      'name' => 'test courier',
+      'email' => 'courier@test.com',
+    ]);
+
     Courier::factory(10)->create();
   }
 }

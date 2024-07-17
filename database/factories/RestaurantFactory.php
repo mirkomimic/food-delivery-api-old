@@ -3,12 +3,15 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Restaurant>
  */
 class RestaurantFactory extends Factory
 {
+  protected static ?string $password;
+
   /**
    * Define the model's default state.
    *
@@ -18,9 +21,9 @@ class RestaurantFactory extends Factory
   {
     return [
       'name' => fake()->company(),
-      'address' => fake()->address(),
       'email' => fake()->unique()->safeEmail(),
-      // 'image' => fake()->image(),
+      'password' => static::$password ??= Hash::make('password'),
+      'address' => fake()->address(),
     ];
   }
 }
